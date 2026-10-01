@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RedCuts — premium cuts, styling and grooming in Bengaluru. Book your next look.">
+<title>RedCuts — Premium Salon Bengaluru</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0a0a; --surface:#121010; --surface2:#191515; --text:#f6f1ed; --muted:#aaa09a;
+  --accent:#e33b35; --accent2:#ff6b5e; --line:rgba(255,255,255,.10);
+  --max:1180px; --radius:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.55}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.container{width:min(calc(100% - 40px),var(--max));margin:auto}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:linear-gradient(180deg,rgba(11,10,10,.94),rgba(11,10,10,.60),transparent);backdrop-filter:blur(12px)}
+.nav-inner{height:78px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.04em}
+.brand-mark{width:32px;height:32px;border-radius:10px;background:var(--accent);display:grid;place-items:center;font-family:"Playfair Display";font-size:17px}
+.nav-links{display:flex;gap:28px;color:#d9d0ca;font-size:14px}
+.nav-links a:hover{color:#fff}
+.nav-cta{padding:11px 17px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.05);font-size:14px}
+.menu{display:none;border:1px solid var(--line);background:none;color:white;padding:9px 12px;border-radius:10px}
+.hero{min-height:92vh;display:grid;align-items:end;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:
+linear-gradient(90deg,rgba(11,10,10,.94) 0%,rgba(11,10,10,.70) 42%,rgba(11,10,10,.20) 100%),
+url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=2000&q=88') center/cover}
+.hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:35%;background:linear-gradient(transparent,var(--bg))}
+.hero-content{position:relative;z-index:2;padding:190px 0 100px;max-width:720px}
+.kicker{text-transform:uppercase;letter-spacing:.18em;color:#e7b7b1;font-size:12px;font-weight:700;margin-bottom:18px}
+h1{font-family:"Playfair Display";font-size:clamp(54px,8vw,104px);line-height:.95;margin:0 0 26px;letter-spacing:-.04em}
+h1 span{color:var(--accent2)}
+.hero p{color:#d5cbc5;font-size:19px;max-width:580px;margin:0 0 32px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 20px;border-radius:999px;font-weight:700;font-size:14px;border:1px solid transparent;cursor:pointer}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#c92f2a}
+.btn-ghost{border-color:var(--line);background:rgba(255,255,255,.06)}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px;color:#d8cec8;font-size:12px}
+.badge{border:1px solid var(--line);padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.04)}
+section{padding:105px 0}
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:40px}
+.eyebrow{color:#d99b93;text-transform:uppercase;letter-spacing:.17em;font-size:11px;font-weight:700;margin-bottom:10px}
+h2{font-family:"Playfair Display";font-size:clamp(38px,5vw,60px);line-height:1;margin:0;letter-spacing:-.035em}
+.section-note{color:var(--muted);max-width:430px;margin:0}
+.cuts{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.cut-card .photo{height:300px}
+.cut-card .info{padding:17px 18px 20px}
+.cut-card h3{margin:0 0 6px;font-size:17px}
+.cut-card p{margin:0;color:var(--muted);font-size:13px}
+.cut-card .price{margin-top:13px;color:#fff;font-weight:700}
+.services{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.service-row{padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--surface);display:flex;justify-content:space-between;gap:20px}
+.service-row h3{margin:0 0 4px;font-size:17px}.service-row p{margin:0;color:var(--muted);font-size:13px}.service-price{font-weight:700;white-space:nowrap}
+.story{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch}
+.story-photo{min-height:570px;border-radius:26px;overflow:hidden}
+.story-copy{border:1px solid var(--line);border-radius:26px;background:var(--surface);padding:48px}
+.story-copy p{color:var(--muted);font-size:16px}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:35px}
+.stat{padding:20px;border-radius:16px;background:var(--surface2);border:1px solid var(--line)}
+.stat strong{font-size:30px;font-family:"Playfair Display";display:block}.stat span{font-size:12px;color:var(--muted)}
+.gallery{display:grid;grid-template-columns:1.1fr .9fr .9fr;grid-auto-rows:240px;gap:14px}
+.gallery .g1{grid-row:span 2}.gallery .g4{grid-column:2 / 4}
+.gallery figure{margin:0;border-radius:20px;overflow:hidden;border:1px solid var(--line);position:relative}
+.gallery figure:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.6))}
+.gallery figcaption{position:absolute;z-index:2;left:18px;bottom:15px;font-size:12px;font-weight:700;letter-spacing:.05em}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.review{padding:28px;background:var(--surface);border:1px solid var(--line);border-radius:20px}
+.stars{color:#f1c46a;letter-spacing:.16em;font-size:13px}.review p{color:#d8cfca;font-size:16px}.person{font-size:12px;color:var(--muted);font-weight:700}
+.booking{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}
+.booking-info,.booking-form{border:1px solid var(--line);background:var(--surface);border-radius:24px;padding:38px}
+.booking-info h3{font-family:"Playfair Display";font-size:34px;margin:0 0 12px}.booking-info p{color:var(--muted)}
+.contact-list{display:grid;gap:14px;margin-top:28px}.contact-item{display:grid;grid-template-columns:34px 1fr;gap:10px}.icon{width:34px;height:34px;border-radius:10px;background:rgba(227,59,53,.13);display:grid;place-items:center;color:#ff8177}.contact-item strong{font-size:13px}.contact-item span{display:block;color:var(--muted);font-size:13px}
+form{display:grid;gap:14px}label{font-size:12px;color:#d5cbc5;font-weight:700}.field{display:grid;gap:7px}
+input,select,textarea{width:100%;border:1px solid var(--line);background:#0f0d0d;color:#fff;border-radius:13px;padding:13px 14px;font:inherit;outline:none}input:focus,select:focus,textarea:focus{border-color:#b95750}textarea{min-height:120px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+footer{padding:35px 0 60px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:20px}
+.footer-brand{color:#fff;font-weight:700}
+.mobile-panel{display:none}
+@media(max-width:980px){.cuts{grid-template-columns:repeat(2,1fr)}.cut-card .photo{height:340px}.story,.booking{grid-template-columns:1fr}.story-photo{min-height:420px}.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:220px}.gallery .g1,.gallery .g4{grid-row:auto;grid-column:auto}.reviews{grid-template-columns:1fr}.services{grid-template-columns:1fr}}
+@media(max-width:700px){.container{width:min(calc(100% - 28px),var(--max))}.nav-links,.nav-cta{display:none}.menu{display:block}.hero-content{padding:150px 0 82px}.hero p{font-size:16px}.cuts{grid-template-columns:1fr}.cut-card .photo{height:390px}section{padding:78px 0}.section-head{display:block}.section-note{margin-top:16px}.story-copy,.booking-info,.booking-form{padding:26px}.stat-grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr;grid-auto-rows:300px}.form-row{grid-template-columns:1fr}footer{display:block}.footer-right{margin-top:10px}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#home"><span class="brand-mark">R</span><span>REDCUTS</span></a>
+    <nav class="nav-links">
+      <a href="#cuts">Cuts</a><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="#booking">Book a chair</a>
+    <button class="menu" onclick="toggleMenu()">Menu</button>
+  </div>
+  <div id="mobilePanel" class="mobile-panel">
+    <div class="container" style="padding:14px 0 18px;display:grid;gap:12px">
+      <a href="#cuts" onclick="toggleMenu()">Cuts</a><a href="#services" onclick="toggleMenu()">Services</a><a href="#gallery" onclick="toggleMenu()">Gallery</a><a href="#reviews" onclick="toggleMenu()">Reviews</a><a href="#contact" onclick="toggleMenu()">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <div class="kicker">Modern cuts • classic craft • Bengaluru</div>
+    <h1>Your look.<br><span>Cut sharper.</span></h1>
+    <p>RedCuts is a modern neighbourhood salon built for clean cuts, confident styling and an easy booking experience.</p>
+    <div class="actions"><a class="btn btn-primary" href="#booking">Book an appointment →</a><a class="btn btn-ghost" href="#cuts">Explore cuts</a></div>
+    <div class="badges"><span class="badge">4.9 ★ average rating</span><span class="badge">Walk-ins welcome</span><span class="badge">Open 10 AM – 9 PM</span></div>
+  </div>
+</section>
+
+<section id="cuts">
+<div class="container">
+  <div class="section-head"><div><div class="eyebrow">The signature lineup</div><h2>Five cuts.<br>One you.</h2></div><p class="section-note">Show your barber the vibe. We’ll tailor the cut to your face shape, hair texture and day-to-day style.</p></div>
+  <div class="cuts">
+    <article class="card cut-card"><div class="photo"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=85" alt="Textured crop haircut"></div><div class="info"><h3>Textured Crop</h3><p>Low-maintenance texture with a clean silhouette.</p><div class="price">₹599</div></div></article>
+    <article class="card cut-card"><div class="photo"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=85" alt="Mid fade haircut"></div><div class="info"><h3>Mid Fade</h3><p>Sharp sides, natural blend and easy styling.</p><div class="price">₹649</div></div></article>
+    <article class="card cut-card"><div class="photo"><img src="https://images.unsplash.com/photo-1534297635766-a262cdcb8ee4?auto=format&fit=crop&w=900&q=85" alt="Classic taper haircut"></div><div class="info"><h3>Classic Taper</h3><p>Timeless shape with a polished finish.</p><div class="price">₹549</div></div></article>
+    <article class="card cut-card"><div class="photo"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=85" alt="Modern pompadour hairstyle"></div><div class="info"><h3>Modern Pompadour</h3><p>Volume on top with a refined, structured finish.</p><div class="price">₹699</div></div></article>
+    <article class="card cut-card"><div class="photo"><img src="https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=900&q=85" alt="Buzz cut hairstyle"></div><div class="info"><h3>Clean Buzz</h3><p>Crisp, minimal and effortless from day one.</p><div class="price">₹449</div></div></article>
+  </div>
+</div>
+</section>
+
+<section id="services" style="background:#100e0e">
+<div class="container">
+<div class="section-head"><div><div class="eyebrow">More than a haircut</div><h2>Everything you<br>need in one chair.</h2></div><p class="section-note">From a quick clean-up to a full grooming session, every service is designed to leave you looking put-together.</p></div>
+<div class="services">
+<div class="service-row"><div><h3>Haircut & Styling</h3><p>Consultation, cut, wash and finished styling.</p></div><div class="service-price">₹599</div></div>
+<div class="service-row"><div><h3>Beard Sculpt</h3><p>Shape, trim, hot towel and clean edges.</p></div><div class="service-price">₹399</div></div>
+<div class="service-row"><div><h3>Hair + Beard Combo</h3><p>Our most booked grooming package.</p></div><div class="service-price">₹899</div></div>
+<div class="service-row"><div><h3>Hair Spa</h3><p>Deep-conditioning treatment for a fresh reset.</p></div><div class="service-price">₹999</div></div>
+<div class="service-row"><div><h3>Global Colour</h3><p>Consultation and professional colour application.</p></div><div class="service-price">from ₹1,999</div></div>
+<div class="service-row"><div><h3>Head Massage</h3><p>Relaxing scalp massage to finish your visit.</p></div><div class="service-price">₹299</div></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container story">
+<div class="story-photo"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1400&q=88" alt="RedCuts barber styling a client"></div>
+<div class="story-copy"><div class="eyebrow">Why RedCuts</div><h2>Good hair days,<br>on repeat.</h2><p>We keep the experience simple: a proper consultation, a clean cut and a finish that actually works outside the salon. No rushed chairs, no mystery pricing and no one-size-fits-all style.</p><p>Our stylists focus on face shape, hair density, texture and your routine before they pick up the clippers.</p>
+<div class="stat-grid"><div class="stat"><strong>4.9★</strong><span>average guest rating</span></div><div class="stat"><strong>7+</strong><span>years of craft</span></div><div class="stat"><strong>10–9</strong><span>open every day</span></div></div>
+</div>
+</div>
+</section>
+
+<section id="gallery" style="background:#100e0e">
+<div class="container">
+<div class="section-head"><div><div class="eyebrow">The RedCuts mood</div><h2>A little sharp.<br>A little relaxed.</h2></div><p class="section-note">A premium neighbourhood space without the stiff, overly formal salon vibe.</p></div>
+<div class="gallery">
+<figure class="g1"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1100&q=88" alt="Salon interior"><figcaption>THE SPACE</figcaption></figure>
+<figure><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=88" alt="Barber tools"><figcaption>THE CRAFT</figcaption></figure>
+<figure><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=88" alt="Hair styling"><figcaption>THE DETAILS</figcaption></figure>
+<figure class="g4"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1400&q=88" alt="Hair salon styling station"><figcaption>THE EXPERIENCE</figcaption></figure>
+</div>
+</div>
+</section>
+
+<section id="reviews">
+<div class="container">
+<div class="section-head"><div><div class="eyebrow">People talk</div><h2>Fresh cuts.<br>Happy regulars.</h2></div><p class="section-note">A few sample testimonials for the demo site. Replace these with the salon’s real reviews before launch.</p></div>
+<div class="reviews">
+<div class="review"><div class="stars">★★★★★</div><p>“Finally found a place that actually listens before cutting. The mid fade came out exactly how I wanted.”</p><div class="person">— Arjun M.</div></div>
+<div class="review"><div class="stars">★★★★★</div><p>“Super clean space, good music and my haircut looked great without needing 20 minutes of styling.”</p><div class="person">— Rohan K.</div></div>
+<div class="review"><div class="stars">★★★★★</div><p>“The hair + beard combo is honestly worth it. Staff were friendly and I was out in under an hour.”</p><div class="person">— Nikhil S.</div></div>
+</div>
+</div>
+</section>
+
+<section id="booking" style="background:#100e0e">
+<div class="container booking">
+<div class="booking-info"><div class="eyebrow">Reserve your chair</div><h3>Walk in or book ahead.</h3><p>Choose a date and preferred service. This demo form sends the request to RedCuts on WhatsApp, so there’s no complicated app for customers to learn.</p>
+<div class="contact-list">
+<div class="contact-item"><div class="icon">⌖</div><div><strong>Demo location</strong><span>27, 2nd Cross, Style Street, Indiranagar, Bengaluru 560038</span></div></div>
+<div class="contact-item"><div class="icon">◷</div><div><strong>Hours</strong><span>Monday – Sunday · 10:00 AM – 9:00 PM</span></div></div>
+<div class="contact-item"><div class="icon">☎</div><div><strong>Call</strong><span>+91 90000 12345</span></div></div>
+</div></div>
+<div class="booking-form"><div class="eyebrow">Appointment request</div>
+<form onsubmit="book(event)">
+<div class="form-row"><div class="field"><label>Name</label><input id="name" required placeholder="Your name"></div><div class="field"><label>Phone</label><input id="phone" required placeholder="10-digit number"></div></div>
+<div class="form-row"><div class="field"><label>Service</label><select id="service"><option>Haircut & Styling</option><option>Mid Fade</option><option>Textured Crop</option><option>Hair + Beard Combo</option><option>Hair Spa</option><option>Global Colour</option></select></div><div class="field"><label>Preferred time</label><select id="time"><option>10:00 AM</option><option>12:00 PM</option><option>2:00 PM</option><option>4:00 PM</option><option>6:00 PM</option><option>8:00 PM</option></select></div></div>
+<div class="field"><label>Date</label><input id="date" type="date" required></div>
+<div class="field"><label>Notes (optional)</label><textarea id="notes" placeholder="Anything the stylist should know?"></textarea></div>
+<button class="btn btn-primary" type="submit">Send booking request on WhatsApp →</button>
+</form></div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<div class="section-head"><div><div class="eyebrow">Come say hello</div><h2>Find RedCuts.</h2></div><p class="section-note">Demo address below — swap this for the client's real location during onboarding.</p></div>
+<div style="border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--surface)">
+<iframe title="RedCuts demo map" src="https://www.google.com/maps?q=Indiranagar%2C%20Bengaluru%2C%20Karnataka&output=embed" width="100%" height="360" style="border:0;filter:grayscale(1) contrast(.9) brightness(.65)" loading="lazy"></iframe>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="container">
+<div><span class="footer-brand">REDCUTS</span> · Premium salon demo website</div>
+<div class="footer-right">© 2026 RedCuts · Replace demo content before launch</div>
+</footer>
+
+<script>
+function toggleMenu(){
+  const p=document.getElementById('mobilePanel');
+  p.style.display = p.style.display==='block' ? 'none' : 'block';
+}
+function book(e){
+  e.preventDefault();
+  const name=document.getElementById('name').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  const service=document.getElementById('service').value;
+  const time=document.getElementById('time').value;
+  const date=document.getElementById('date').value;
+  const notes=document.getElementById('notes').value.trim();
+  const msg=`Hi RedCuts! I'd like to book an appointment.%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AService: ${encodeURIComponent(service)}%0ADate: ${encodeURIComponent(date)}%0APreferred time: ${encodeURIComponent(time)}%0ANotes: ${encodeURIComponent(notes||'None')}`;
+  window.open(`https://wa.me/919000012345?text=${msg}`,'_blank');
+}
+</script>
+</body>
+</html>
